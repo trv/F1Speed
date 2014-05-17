@@ -26,8 +26,12 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-F1Speed/obj/x86/Debug/f1Speed.csproj.FileListAbsolute.txt
-F1Speed.Tests/obj/Debug/F1Speed.Tests.csproj.FileListAbsolute.txt
-F1Speed.Core/obj/Debug/F1Speed.Core.csproj.FileListAbsolute.txt
+F1Speed/obj/x86/Debug/*
+F1Speed.Tests/obj/Debug/*
+F1Speed.Core/obj/Debug/*
 packages/
 F1Speed/obj/*
+
+**/obj/**
+**/bin/**
+
