@@ -5,7 +5,6 @@ using System.Text;
 using F1Speed.Core;
 using F1Speed.Models;
 using Nancy;
-using F1Speed.Core;
 
 namespace F1Speed.Modules
 {
