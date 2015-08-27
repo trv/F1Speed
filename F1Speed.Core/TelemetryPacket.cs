@@ -81,6 +81,10 @@ namespace F1Speed.Core
             NewField26 = info.GetValue<float>("NewField26");
             NewField27 = info.GetValue<float>("NewField27");
             NewField28 = info.GetValue<float>("NewField28");
+            NewField29 = info.GetValue<float>("NewField29");
+            NewField30 = info.GetValue<float>("NewField30");
+            NewField31 = info.GetValue<float>("NewField31");
+            NewField32 = info.GetValue<float>("NewField32");
         }
 
         public float Time;
@@ -215,6 +219,18 @@ namespace F1Speed.Core
         [XmlIgnore]
         public float NewField28;    // Always 0?
 
+
+        //  The next four fields are new for F1 2015
+
+        [XmlIgnore]
+        public float NewField29;
+        [XmlIgnore]
+        public float NewField30;
+        [XmlIgnore]
+        public float NewField31;
+        [XmlIgnore]
+        public float NewField32;
+
         /* End new Fields */
 
         [XmlIgnore]
@@ -232,7 +248,7 @@ namespace F1Speed.Core
         [XmlIgnore]
         public bool IsInPitLane
         {
-            get { return Math.Abs(LapTime - 0) < Constants.Epsilon; }
+            get { return Math.Abs(LapTime - 0) < Constants.Epsilon && SpeedInKmPerHour < 85.0f; }
         }
 
         [XmlIgnore]
@@ -242,7 +258,7 @@ namespace F1Speed.Core
             {
                 if (Math.Abs(this.SessionType - 9.5f) < 0.0001f)
                     return "Race";
-                if (Math.Abs(this.SessionType - 10f) < 0.0001f)
+                if (Math.Abs(this.SessionType - 10f) < 0.0001f || Math.Abs(this.SessionType - 100f) < 0.0001f)
                     return "Time Trial";
                 if (Math.Abs(this.SessionType - 170f) < 0.0001f)
                     return "Qualifying or Practice";                
@@ -336,6 +352,10 @@ namespace F1Speed.Core
             info.AddValue("NewField26", NewField26);
             info.AddValue("NewField27", NewField27);
             info.AddValue("NewField28", NewField28);
+            info.AddValue("NewField29", NewField29);
+            info.AddValue("NewField30", NewField30);
+            info.AddValue("NewField31", NewField31);
+            info.AddValue("NewField32", NewField32);
         }
     }
 }

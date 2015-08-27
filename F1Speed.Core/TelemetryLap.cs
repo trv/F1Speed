@@ -164,7 +164,7 @@ namespace F1Speed.Core
                     if (!Packets.Any())
                         return false;
                     var first = Packets.First();
-                    return first.LapTime > 0f && first.LapTime < cutoff;
+                    return first.LapTime >= 0f && first.LapTime < cutoff;
                 }
             }
         }
