@@ -279,7 +279,7 @@ namespace F1Speed.Core
                     else
                         OnReturnedToGarage(CurrentLap);
 
-                    if (CurrentLap.IsCompleteLap)
+                    if (CurrentLap.IsCompleteLap && (int)packet.Lap != 0 && (int)packet.Lap > CurrentLap.LapNumber)
                     {
                         if (string.IsNullOrEmpty(CurrentLap.CircuitName) && string.IsNullOrEmpty(CurrentLap.LapType))
                             CurrentLap.LapType = _lapType;
