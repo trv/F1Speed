@@ -74,6 +74,11 @@ namespace F1Speed.Core.Repositories
             try
             {
                 matchedCircuit = _circuits.OrderBy(x => Math.Abs(x.TrackLength - trackLength)).First();
+                if (Math.Abs(matchedCircuit.TrackLength - trackLength) > 1.0f)
+                {
+                    matchedCircuit = new Circuit() { Name = trackLength.ToString("#m"), TrackLength = trackLength, Order = _circuits.Count, Filename = trackLength.ToString("Unknown (#m)") };
+                    _circuits.Add(matchedCircuit);
+                }
             }
             catch (InvalidOperationException)
             {
